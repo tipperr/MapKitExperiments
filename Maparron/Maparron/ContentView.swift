@@ -16,7 +16,7 @@ struct ContentView: View {
             center: CLLocationCoordinate2D(latitude: 41, longitude: -74),
             span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
     )
-    
+     
     var body: some View {
         
         MapReader{ proxy in

@@ -52,7 +52,7 @@ struct EditView: View {
                 .foregroundStyle(.red)
             }
 
-        }
+        } 
     }
     
     init(location: Location, onSave: @escaping (Location) -> Void, onDelete: (() -> Void)? = nil) {

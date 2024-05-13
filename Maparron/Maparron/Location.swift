@@ -27,3 +27,4 @@ struct Location: Codable, Equatable, Identifiable {
         lhs.id == rhs.id
     }
 }
+ 
