@@ -26,7 +26,9 @@ struct ContentView: View {
                     Annotation(location.name, coordinate: location.coordinate){
                         Image(systemName: "star.circle")
                             .resizable()
-                            .foregroundStyle(.red)
+                            //.foregroundStyle(.red)
+                            .foregroundColor(locationVisitStatusColor(location.visitStatus))
+
                             .frame(width: 44, height: 44)
                             .background(.white)
                             .clipShape(.circle)
@@ -70,7 +72,18 @@ struct ContentView: View {
             }
             
         }
-    
+    func locationVisitStatusColor(_ status: Location.VisitStatus) -> Color {
+        switch status {
+        case .wantToVisit:
+            return .blue
+        case .visited:
+            return .pink
+        case .rachel:
+            return .purple
+        case .ciaran:
+            return .green
+        }
+    }
     
     
 }
