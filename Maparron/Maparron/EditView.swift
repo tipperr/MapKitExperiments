@@ -17,7 +17,9 @@ struct EditView: View {
     
     @State private var name: String
     @State private var description: String
-    @State private var pinColor: Color = .red
+    //@State private var pinColor: Color = .red
+    @State private var visitStatus: Location.VisitStatus
+    
     var onSave: (Location) -> Void
     var onDelete: (() -> Void)?
     
@@ -30,7 +32,12 @@ struct EditView: View {
                 Section {
                     TextField("Place name", text: $name)
                     TextField("Description", text: $description)
-                    ColorPicker("Pin Color", selection: $pinColor)
+                    Picker("Status", selection: $visitStatus) {
+                        ForEach(Location.VisitStatus.allCases, id: \.self) { status in
+                            Text(status.rawValue)
+                        }
+                    }
+                    //ColorPicker("Pin Color", selection: $pinColor)
                 }
                 
             }
@@ -41,6 +48,7 @@ struct EditView: View {
                     newLocation.id = UUID()
                     newLocation.name = name
                     newLocation.description = description
+                    newLocation.visitStatus = visitStatus
                     
                     onSave(newLocation)
                     dismiss()
@@ -59,6 +67,7 @@ struct EditView: View {
         self.location = location
         self.onSave = onSave
         self.onDelete = onDelete
+        self._visitStatus = State(initialValue: location.visitStatus)
         //self.pinColor = pinColor
         
         _name = State(initialValue: location.name)
