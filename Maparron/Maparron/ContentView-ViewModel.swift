@@ -13,7 +13,6 @@ extension ContentView {
     
     @Observable
     class ViewModel {
-        
         private(set) var locations: [Location]
         var selectedPlace: Location?
         
@@ -28,7 +27,9 @@ extension ContentView {
                 locations = []
             }
             
+            
         }
+        
         
         func save() {
             do {

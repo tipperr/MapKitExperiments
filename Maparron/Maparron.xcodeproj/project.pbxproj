@@ -14,6 +14,9 @@
 		D250DAD82BF1A0D600CE0ED2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250DAD72BF1A0D600CE0ED2 /* Location.swift */; };
 		D250DADA2BF1A11900CE0ED2 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250DAD92BF1A11900CE0ED2 /* ContentView-ViewModel.swift */; };
 		D250DADC2BF1A42C00CE0ED2 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250DADB2BF1A42C00CE0ED2 /* EditView.swift */; };
+		D250DADE2BF2F21500CE0ED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */; };
+		D250DAE12BF2F2E300CE0ED2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE02BF2F2E300CE0ED2 /* FirebaseAnalytics */; };
+		D250DAE32BF2F2E300CE0ED2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,7 @@
 		D250DAD72BF1A0D600CE0ED2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D250DAD92BF1A11900CE0ED2 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		D250DADB2BF1A42C00CE0ED2 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D250DAE12BF2F2E300CE0ED2 /* FirebaseAnalytics in Frameworks */,
+				D250DAE32BF2F2E300CE0ED2 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 				D250DAD72BF1A0D600CE0ED2 /* Location.swift */,
 				D250DAC92BF1995000CE0ED2 /* MaparronApp.swift */,
 				D250DACD2BF1995100CE0ED2 /* Assets.xcassets */,
+				D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */,
 				D250DACF2BF1995100CE0ED2 /* Preview Content */,
 			);
 			path = Maparron;
@@ -92,6 +99,10 @@
 			dependencies = (
 			);
 			name = Maparron;
+			packageProductDependencies = (
+				D250DAE02BF2F2E300CE0ED2 /* FirebaseAnalytics */,
+				D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */,
+			);
 			productName = Maparron;
 			productReference = D250DAC62BF1995000CE0ED2 /* Maparron.app */;
 			productType = "com.apple.product-type.application";
@@ -120,6 +131,9 @@
 				Base,
 			);
 			mainGroup = D250DABD2BF1995000CE0ED2;
+			packageReferences = (
+				D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = D250DAC72BF1995000CE0ED2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -136,6 +150,7 @@
 			files = (
 				D250DAD12BF1995100CE0ED2 /* Preview Assets.xcassets in Resources */,
 				D250DACE2BF1995100CE0ED2 /* Assets.xcassets in Resources */,
+				D250DADE2BF2F21500CE0ED2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +371,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D250DAE02BF2F2E300CE0ED2 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D250DABE2BF1995000CE0ED2 /* Project object */;
 }
