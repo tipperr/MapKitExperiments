@@ -7,6 +7,8 @@
 
 import Foundation
 import MapKit
+import Firebase
+import FirebaseDatabase
 
 struct Location: Codable, Equatable, Identifiable {
     var id: UUID
@@ -41,6 +43,20 @@ struct Location: Codable, Equatable, Identifiable {
             case rachel = "Rachel Visited"
             case ciaran = "Ciarán Visited"
         }
+    
+
+    func toDictionary() -> [String: Any] {
+            return [
+                "id": id.uuidString,
+                "name": name,
+                "description": description,
+                "latitude": latitude,
+                "longitude": longitude,
+                "pinColor": pinColor,
+                "visitStatus": visitStatus.rawValue
+            ]
+        }
+        
     
     init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)

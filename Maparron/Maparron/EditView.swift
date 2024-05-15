@@ -31,12 +31,12 @@ struct EditView: View {
             Form {
                 Section {
                     TextField("Place name", text: $name)
-                    TextField("Description", text: $description)
                     Picker("Status", selection: $visitStatus) {
                         ForEach(Location.VisitStatus.allCases, id: \.self) { status in
                             Text(status.rawValue)
                         }
                     }
+                    TextField("Description", text: $description)
                     //ColorPicker("Pin Color", selection: $pinColor)
                 }
                 

@@ -38,6 +38,9 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear{
+                viewModel.fetchLocations()
+            }
             .onTapGesture { position in
                 if let coordinate = proxy.convert(position, from: .local){
                     viewModel.addLocation(at: coordinate)

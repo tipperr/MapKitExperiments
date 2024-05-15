@@ -17,6 +17,8 @@
 		D250DADE2BF2F21500CE0ED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */; };
 		D250DAE12BF2F2E300CE0ED2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE02BF2F2E300CE0ED2 /* FirebaseAnalytics */; };
 		D250DAE32BF2F2E300CE0ED2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */; };
+		D250DAE62BF2FDBD00CE0ED2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE52BF2FDBD00CE0ED2 /* FirebaseDatabase */; };
+		D250DAE82BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE72BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D250DAE82BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift in Frameworks */,
+				D250DAE62BF2FDBD00CE0ED2 /* FirebaseDatabase in Frameworks */,
 				D250DAE12BF2F2E300CE0ED2 /* FirebaseAnalytics in Frameworks */,
 				D250DAE32BF2F2E300CE0ED2 /* FirebaseStorage in Frameworks */,
 			);
@@ -49,6 +53,7 @@
 			children = (
 				D250DAC82BF1995000CE0ED2 /* Maparron */,
 				D250DAC72BF1995000CE0ED2 /* Products */,
+				D250DAE42BF2FDBD00CE0ED2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +88,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D250DAE42BF2FDBD00CE0ED2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +114,8 @@
 			packageProductDependencies = (
 				D250DAE02BF2F2E300CE0ED2 /* FirebaseAnalytics */,
 				D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */,
+				D250DAE52BF2FDBD00CE0ED2 /* FirebaseDatabase */,
+				D250DAE72BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift */,
 			);
 			productName = Maparron;
 			productReference = D250DAC62BF1995000CE0ED2 /* Maparron.app */;
@@ -393,6 +407,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D250DAE52BF2FDBD00CE0ED2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		D250DAE72BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
