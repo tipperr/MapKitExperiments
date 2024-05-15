@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         
         MapReader{ proxy in
-            Map(initialPosition: startPosition){
+            Map(/*initialPosition: startPosition*/){
                 ForEach(viewModel.locations){ location in
                     /*Marker(location.name, coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))*/
                     Annotation(location.name, coordinate: location.coordinate){
@@ -35,9 +35,10 @@ struct ContentView: View {
                             .onLongPressGesture{
                                 viewModel.selectedPlace = location
                             }
-                    }
+                    } 
                 }
             }
+            //.mapStyle(.hybrid)
             .onAppear{
                 viewModel.fetchLocations()
             }

@@ -36,7 +36,10 @@ struct EditView: View {
                             Text(status.rawValue)
                         }
                     }
-                    TextField("Description", text: $description)
+                }
+                Section("Notes"){
+                    TextEditor(text: $description)
+                    //TextField("Description", text: $description)
                     //ColorPicker("Pin Color", selection: $pinColor)
                 }
                 
