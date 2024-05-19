@@ -86,7 +86,7 @@ extension ContentView {
                         if let error = error {
                                         print("Error adding location to Firebase: \(error)")
                         } else {
-                            print("Location added successfully to Firebase")
+                            print("Location added successfully to Firebase: \(idString)")
                         }
                     }
                 }
@@ -94,50 +94,84 @@ extension ContentView {
             //save()
         }
         
-        func update(location: Location){
+        func update(location: Location) {
             let idString = location.id.uuidString
-            
+            print("Updating location with ID: \(idString)") // Debugging statement
+
             guard !idString.isEmpty else {
-                    print("Error: Unable to convert location ID to string")
-                    return
-                }
-            
+                print("Error: Unable to convert location ID to string")
+                return
+            }
+
             let locationDict = location.toDictionary()
             let locationRef = databaseRef.child("locations").child(idString)
-                
+
             locationRef.observeSingleEvent(of: .value) { snapshot in
                 if snapshot.exists() {
+                    print("Location exists in Firebase, updating...") // Debugging statement
                     locationRef.updateChildValues(locationDict) { error, _ in
                         if let error = error {
                             print("Error updating location in Firebase: \(error)")
                         } else {
                             print("Location updated successfully in Firebase")
+                            // Optionally update the local `locations` array
+                            if let index = self.locations.firstIndex(where: { $0.id == location.id }) {
+                                self.locations[index] = location
+                            }
                         }
                     }
                 } else {
                     print("Location with ID \(idString) does not exist in Firebase")
                 }
             }
-            
+        }
+
+        
+//        func update(location: Location){
+//                        
+//            let idString = location.id.uuidString
+//            
+//            guard !idString.isEmpty else {
+//                    print("Error: Unable to convert location ID to string")
+//                    return
+//                }
+//            
 //            let locationDict = location.toDictionary()
-//                databaseRef.child("locations").child(idString).updateChildValues(locationDict) { error, _ in
-//                    if let error = error {
-//                        print("Error updating location in Firebase: \(error)")
-//                    } else {
-//                        print("Location updated successfully in Firebase")
+//            let locationRef = databaseRef.child("locations").child(idString)
+//                
+//            locationRef.observeSingleEvent(of: .value) { snapshot in
+//                if snapshot.exists() {
+//                    locationRef.updateChildValues(locationDict) { error, _ in
+//                        if let error = error {
+//                            print("Error updating location in Firebase: \(error)")
+//                        } else {
+//                            print("Location updated successfully in Firebase")
+//                        }
 //                    }
+//                } else {
+//                    print("Location with ID \(idString) does not exist in Firebase")
 //                }
-            
-            
-//                databaseRef.child("locations").child(idString).setValue(location.toDictionary()) { error, _ in
-//                    if let error = error {
-//                        print("Error updating location in Firebase: \(error)")
-//                    } else {
-//                        print("Location updated successfully in Firebase")
-//                    }
-//                }
-            fetchLocations()
-            }
+//            }
+//            
+////            let locationDict = location.toDictionary()
+////                databaseRef.child("locations").child(idString).updateChildValues(locationDict) { error, _ in
+////                    if let error = error {
+////                        print("Error updating location in Firebase: \(error)")
+////                    } else {
+////                        print("Location updated successfully in Firebase")
+////                    }
+////                }
+//            
+//            
+////                databaseRef.child("locations").child(idString).setValue(location.toDictionary()) { error, _ in
+////                    if let error = error {
+////                        print("Error updating location in Firebase: \(error)")
+////                    } else {
+////                        print("Location updated successfully in Firebase")
+////                    }
+////                }
+//            fetchLocations()
+//            }
 //            guard let selectedPlace else { return }
 //            if let index = locations.firstIndex(of: selectedPlace) {
 //                locations[index] = location
