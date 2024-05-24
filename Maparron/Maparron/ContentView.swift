@@ -21,17 +21,6 @@ struct ContentView: View {
         VStack{
             
             //Button("Refresh", action: viewModel.fetchLocations)
-            HStack{
-                Text("Filter:")
-                Picker("Filter", selection: $viewModel.selectedFilter) {
-                    Text("All").tag(Location.VisitStatus?.none)
-                    ForEach(Location.VisitStatus.allCases, id: \.self) { status in
-                        Text(status.rawValue).tag(status as Location.VisitStatus?)
-                    }
-                }
-            }
-            //.pickerStyle(MenuPickerStyle())
-            .padding()
             
             MapReader{ proxy in
                 Map(initialPosition: startPosition){
@@ -87,6 +76,17 @@ struct ContentView: View {
                     
                     
                 }
+                HStack{
+                    Text("Filter:")
+                    Picker("Filter", selection: $viewModel.selectedFilter) {
+                        Text("All").tag(Location.VisitStatus?.none)
+                        ForEach(Location.VisitStatus.allCases, id: \.self) { status in
+                            Text(status.rawValue).tag(status as Location.VisitStatus?)
+                        }
+                    }
+                }
+                //.pickerStyle(MenuPickerStyle())
+                .padding()
             }
             }
             

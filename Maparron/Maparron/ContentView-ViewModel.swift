@@ -85,7 +85,8 @@ extension ContentView {
 
         
         func addLocation(at point: CLLocationCoordinate2D) {
-            let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: point.latitude, longitude: point.longitude, pinColor: ".red", visitStatus: .wantToVisit)
+            let newVisitStatus = selectedFilter ?? .wantToVisit
+            let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: point.latitude, longitude: point.longitude, pinColor: ".red", visitStatus: newVisitStatus)
             locations.append(newLocation)
             let locationDict = newLocation.toDictionary()
                 if let idString = locationDict["id"] as? String {
