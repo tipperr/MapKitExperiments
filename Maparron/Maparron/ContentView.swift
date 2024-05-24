@@ -9,53 +9,68 @@ import MapKit
 import SwiftUI
 
 struct ContentView: View {
-    @State private var viewModel = ViewModel()
+    @StateObject private var viewModel = ViewModel()
     
     let startPosition = MapCameraPosition.region(
         MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 41, longitude: -74),
-            span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
+            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
     )
      
     var body: some View {
-        
-        MapReader{ proxy in
-            Map(/*initialPosition: startPosition*/){
-                ForEach(viewModel.locations){ location in
-                    /*Marker(location.name, coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))*/
-                    Annotation(location.name, coordinate: location.coordinate){
-                        Image(systemName: "star.circle")
-                            .resizable()
+        VStack{
+            
+            //Button("Refresh", action: viewModel.fetchLocations)
+            HStack{
+                Text("Filter:")
+                Picker("Filter", selection: $viewModel.selectedFilter) {
+                    Text("All").tag(Location.VisitStatus?.none)
+                    ForEach(Location.VisitStatus.allCases, id: \.self) { status in
+                        Text(status.rawValue).tag(status as Location.VisitStatus?)
+                    }
+                }
+            }
+            //.pickerStyle(MenuPickerStyle())
+            .padding()
+            
+            MapReader{ proxy in
+                Map(initialPosition: startPosition){
+                    ForEach(viewModel.filteredLocations){ location in
+                        /*Marker(location.name, coordinate: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))*/
+                        Annotation(location.name, coordinate: location.coordinate){
+                            Image(systemName: "star.circle")
+                                .resizable()
                             //.foregroundStyle(.red)
-                            .foregroundColor(locationVisitStatusColor(location.visitStatus))
-
-                            .frame(width: 44, height: 44)
-                            .background(.white)
-                            .clipShape(.circle)
-                            .onLongPressGesture{
-                                viewModel.selectedPlace = location
-                            }
-                    } 
+                                .foregroundColor(locationVisitStatusColor(location.visitStatus))
+                            
+                                .frame(width: 44, height: 44)
+                                .background(.white)
+                                .clipShape(.circle)
+                                .onLongPressGesture{
+                                    viewModel.selectedPlace = location
+                                }
+                        }
+                    }
                 }
-            }
-            //.mapStyle(.hybrid)
-            .onAppear{
-                viewModel.fetchLocations()
-            }
-            .onTapGesture { position in
-                if let coordinate = proxy.convert(position, from: .local){
-                    viewModel.addLocation(at: coordinate)
-                    //print("Tapped at \(coordinate)")
-                    //Added to ViewModel
-                    /*let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: coordinate.latitude, longitude: coordinate.longitude)
-                     
-                     viewModel.locations.append(newLocation)*/
+                
+                //.mapStyle(.hybrid)
+                .onAppear{
+                    viewModel.fetchLocations()
                 }
-            }
-            .sheet(item: $viewModel.selectedPlace){ place in
-                //Text(place.name)
-//                EditView(location: place){ /*newLocation in*/
-//                    viewModel.update(location: $0)
+                .onTapGesture { position in
+                    if let coordinate = proxy.convert(position, from: .local){
+                        viewModel.addLocation(at: coordinate)
+                        //print("Tapped at \(coordinate)")
+                        //Added to ViewModel
+                        /*let newLocation = Location(id: UUID(), name: "New Location", description: "", latitude: coordinate.latitude, longitude: coordinate.longitude)
+                         
+                         viewModel.locations.append(newLocation)*/
+                    }
+                }
+                .sheet(item: $viewModel.selectedPlace){ place in
+                    //Text(place.name)
+                    //                EditView(location: place){ /*newLocation in*/
+                    //                    viewModel.update(location: $0)
                     //viewModel.deleteLocation(location: $0)
                     //                    //Added to ViewModel
                     //                    /*if let index = viewModel.locations.firstIndex(of: place) {
@@ -69,10 +84,10 @@ struct ContentView: View {
                     }, onDelete: {
                         viewModel.deleteLocation(location: place)
                     })
-
+                    
                     
                 }
-                
+            }
             }
             
         }

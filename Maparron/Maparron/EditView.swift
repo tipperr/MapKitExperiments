@@ -79,6 +79,6 @@ struct EditView: View {
     
 }
 
-#Preview {
+/*#Preview {
     EditView(location: .example) { _ in }
-}
+}*/

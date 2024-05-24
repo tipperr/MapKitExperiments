@@ -13,13 +13,13 @@ import FirebaseDatabase
 
 extension ContentView {
     
-    @Observable
-    class ViewModel {
+    //@Observable
+    class ViewModel: ObservableObject {
         private var databaseRef: DatabaseReference
 
-        private(set) var locations: [Location]
-        var selectedPlace: Location?
-        
+        @Published private(set) var locations: [Location]
+        @Published var selectedPlace: Location?
+        @Published var selectedFilter: Location.VisitStatus?
         
         let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
         
@@ -34,6 +34,13 @@ extension ContentView {
             }
             
             
+        }
+        
+        var filteredLocations: [Location] { // Computed property for filtered locations
+            guard let selectedFilter = selectedFilter else {
+                return locations
+            }
+            return locations.filter { $0.visitStatus == selectedFilter }
         }
         
         
