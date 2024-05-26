@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 import Firebase
 import FirebaseDatabase
+import UserNotifications
 
 extension ContentView {
     
@@ -95,6 +96,7 @@ extension ContentView {
                                         print("Error adding location to Firebase: \(error)")
                         } else {
                             print("Location added successfully to Firebase: \(idString)")
+                            self.scheduleNotification(for: newLocation)
                         }
                     }
                 }
@@ -217,6 +219,36 @@ extension ContentView {
 //                    //save()
 //                }
             }
+        
+        func scheduleNotification(for location: Location) {
+                let content = UNMutableNotificationContent()
+                content.title = "New Location Added"
+                content.body = "A new location named \(location.name) has been added to the map."
+                content.sound = .default
+
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Error scheduling notification: \(error)")
+                    }
+                }
+            }
+        
+        func requestNotificationPermission() {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+                if granted {
+                    print("Notification permission granted.")
+                } else {
+                    if let error = error {
+                        print("Notification permission denied: \(error)")
+                    } else {
+                        print("Notification permission denied.")
+                    }
+                }
+            }
+        }
         
     }
 }

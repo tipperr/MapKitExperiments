@@ -7,6 +7,7 @@
 
 import MapKit
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     @StateObject private var viewModel = ViewModel()
@@ -45,6 +46,7 @@ struct ContentView: View {
                 //.mapStyle(.hybrid)
                 .onAppear{
                     viewModel.fetchLocations()
+                    viewModel.requestNotificationPermission()
                 }
                 .onTapGesture { position in
                     if let coordinate = proxy.convert(position, from: .local){
