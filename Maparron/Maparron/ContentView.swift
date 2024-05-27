@@ -89,6 +89,12 @@ struct ContentView: View {
                 }
                 //.pickerStyle(MenuPickerStyle())
                 .padding()
+                
+                VStack{
+                    Text("Rachel Visited: \(viewModel.rachelVisitedCount)")
+                    Text("Ciarán Visited: \(viewModel.ciaranVisitedCount)")
+                    Text("Both Visited: \(viewModel.bothVisitedCount)")
+                }
             }
             }
             

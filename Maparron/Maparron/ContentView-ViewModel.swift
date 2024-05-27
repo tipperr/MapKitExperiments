@@ -44,6 +44,18 @@ extension ContentView {
             return locations.filter { $0.visitStatus == selectedFilter }
         }
         
+        var rachelVisitedCount: Int {
+            locations.filter { ($0.visitStatus == .rachel) || ($0.visitStatus == .visited ) }.count
+            }
+            
+        var ciaranVisitedCount: Int {
+            locations.filter { ($0.visitStatus == .ciaran) ||  ($0.visitStatus == .visited )}.count
+        }
+            
+        var bothVisitedCount: Int {
+            locations.filter { $0.visitStatus == .visited }.count
+        }
+        
         
 //        func save() {
 //            do {
