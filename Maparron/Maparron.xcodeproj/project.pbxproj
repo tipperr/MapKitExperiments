@@ -14,11 +14,15 @@
 		D250DAD82BF1A0D600CE0ED2 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250DAD72BF1A0D600CE0ED2 /* Location.swift */; };
 		D250DADA2BF1A11900CE0ED2 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250DAD92BF1A11900CE0ED2 /* ContentView-ViewModel.swift */; };
 		D250DADC2BF1A42C00CE0ED2 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250DADB2BF1A42C00CE0ED2 /* EditView.swift */; };
-		D250DADE2BF2F21500CE0ED2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */; };
 		D250DAE12BF2F2E300CE0ED2 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE02BF2F2E300CE0ED2 /* FirebaseAnalytics */; };
 		D250DAE32BF2F2E300CE0ED2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */; };
 		D250DAE62BF2FDBD00CE0ED2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE52BF2FDBD00CE0ED2 /* FirebaseDatabase */; };
 		D250DAE82BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D250DAE72BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift */; };
+		D2AE78012C075F1C00DDFE7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE78002C075F1C00DDFE7D /* AppDelegate.swift */; };
+		D2AE78032C093C4300DDFE7D /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D2AE78022C093C4300DDFE7D /* FirebaseMessaging */; };
+		D2AE78062C0DF80300DDFE7D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AE78052C0DF80300DDFE7D /* NotificationManager.swift */; };
+		D2AE780A2C0F552A00DDFE7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2AE78092C0F552A00DDFE7D /* GoogleService-Info.plist */; };
+		D2AE780C2C1071F600DDFE7D /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2AE780B2C1071F600DDFE7D /* FirebaseAnalyticsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +34,11 @@
 		D250DAD72BF1A0D600CE0ED2 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D250DAD92BF1A11900CE0ED2 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		D250DADB2BF1A42C00CE0ED2 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
-		D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2AE77FD2C0393B800DDFE7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D2AE78002C075F1C00DDFE7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2AE78042C093DDC00DDFE7D /* Maparron.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Maparron.entitlements; sourceTree = "<group>"; };
+		D2AE78052C0DF80300DDFE7D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		D2AE78092C0F552A00DDFE7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +46,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2AE780C2C1071F600DDFE7D /* FirebaseAnalyticsSwift in Frameworks */,
 				D250DAE82BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift in Frameworks */,
 				D250DAE62BF2FDBD00CE0ED2 /* FirebaseDatabase in Frameworks */,
+				D2AE78032C093C4300DDFE7D /* FirebaseMessaging in Frameworks */,
 				D250DAE12BF2F2E300CE0ED2 /* FirebaseAnalytics in Frameworks */,
 				D250DAE32BF2F2E300CE0ED2 /* FirebaseStorage in Frameworks */,
 			);
@@ -69,6 +78,10 @@
 		D250DAC82BF1995000CE0ED2 /* Maparron */ = {
 			isa = PBXGroup;
 			children = (
+				D2AE78002C075F1C00DDFE7D /* AppDelegate.swift */,
+				D2AE78092C0F552A00DDFE7D /* GoogleService-Info.plist */,
+				D2AE78052C0DF80300DDFE7D /* NotificationManager.swift */,
+				D2AE78042C093DDC00DDFE7D /* Maparron.entitlements */,
 				D2AE77FD2C0393B800DDFE7D /* Info.plist */,
 				D250DACB2BF1995000CE0ED2 /* ContentView.swift */,
 				D250DADB2BF1A42C00CE0ED2 /* EditView.swift */,
@@ -76,7 +89,6 @@
 				D250DAD72BF1A0D600CE0ED2 /* Location.swift */,
 				D250DAC92BF1995000CE0ED2 /* MaparronApp.swift */,
 				D250DACD2BF1995100CE0ED2 /* Assets.xcassets */,
-				D250DADD2BF2F21500CE0ED2 /* GoogleService-Info.plist */,
 				D250DACF2BF1995100CE0ED2 /* Preview Content */,
 			);
 			path = Maparron;
@@ -118,6 +130,8 @@
 				D250DAE22BF2F2E300CE0ED2 /* FirebaseStorage */,
 				D250DAE52BF2FDBD00CE0ED2 /* FirebaseDatabase */,
 				D250DAE72BF2FDCA00CE0ED2 /* FirebaseDatabaseSwift */,
+				D2AE78022C093C4300DDFE7D /* FirebaseMessaging */,
+				D2AE780B2C1071F600DDFE7D /* FirebaseAnalyticsSwift */,
 			);
 			productName = Maparron;
 			productReference = D250DAC62BF1995000CE0ED2 /* Maparron.app */;
@@ -166,7 +180,7 @@
 			files = (
 				D250DAD12BF1995100CE0ED2 /* Preview Assets.xcassets in Resources */,
 				D250DACE2BF1995100CE0ED2 /* Assets.xcassets in Resources */,
-				D250DADE2BF2F21500CE0ED2 /* GoogleService-Info.plist in Resources */,
+				D2AE780A2C0F552A00DDFE7D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +194,8 @@
 				D250DACC2BF1995000CE0ED2 /* ContentView.swift in Sources */,
 				D250DADC2BF1A42C00CE0ED2 /* EditView.swift in Sources */,
 				D250DADA2BF1A11900CE0ED2 /* ContentView-ViewModel.swift in Sources */,
+				D2AE78012C075F1C00DDFE7D /* AppDelegate.swift in Sources */,
+				D2AE78062C0DF80300DDFE7D /* NotificationManager.swift in Sources */,
 				D250DAD82BF1A0D600CE0ED2 /* Location.swift in Sources */,
 				D250DACA2BF1995000CE0ED2 /* MaparronApp.swift in Sources */,
 			);
@@ -312,6 +328,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Maparron/Maparron.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Maparron/Preview Content\"";
@@ -342,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Maparron/Maparron.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Maparron/Preview Content\"";
@@ -421,6 +439,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		D2AE78022C093C4300DDFE7D /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		D2AE780B2C1071F600DDFE7D /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D250DADF2BF2F2E300CE0ED2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
